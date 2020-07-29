@@ -1,0 +1,24 @@
+.container{
+    height: 100vh;
+    background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weatherWindow{
+    height: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: blue;
+ 
+}
+
+.btn{
+    height: 35px;
+    width: 100px;
+    background-color: green;
+}
