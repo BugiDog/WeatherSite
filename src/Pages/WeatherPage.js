@@ -12,12 +12,14 @@ function WeatherPage() {
     let result = null
 
     const getWeather = async () => {
-        const url = `http://localhost:5000/weather/Current?city=${city}`
+        const url = `http://localhost:5000/weather/Current?city=${city}`/*  */
         setRes(result = await fetch(url).then(response => response.json().then(data => {
-            return ([data.main.temp, data.wind.speed, data.sys.sunrise, data.sys.sunset, data.name])
+            console.log(data)
+            return data    /*[data.main.temp, data.wind.speed, data.sys.sunrise, data.sys.sunset, data.name] */
         })))
+        
     }
-    
+
     const handleInputChange = (event) => {
         setCity(event.target.value)
     }
