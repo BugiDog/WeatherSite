@@ -8,7 +8,7 @@
 
 .weatherWindow{
     height: 300px;
-    width: 300px;
+    width: 600px;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -24,7 +24,7 @@ function weatherInfo({data}) {
             Погода на {dateNow}<br/>
             Город: {data.name}
         <div>
-            Температура: { temp } С    {'---------'+data.main.temp}F
+            {`Температура: ${ temp }С/${data.main.temp}F`}
         </div>
         <div>
             Скорость ветра: { data.wind.speed } М/с      

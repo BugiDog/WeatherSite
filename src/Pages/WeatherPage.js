@@ -7,35 +7,50 @@ import './style.css'
 
 
 function WeatherPage() {
-    const [city, setCity] = useState('Kiev')
+    const [city, setCity] = useState('Kyiv')
     const [res, setRes] = useState(null)
     let result = null
 
-    const getWeather = async () => {
-        const url = `http://localhost:5000/weather/Current?city=${city}`/*  */
-        setRes(result = await fetch(url).then(response => response.json().then(data => {
-            console.log(data)
-            return data    /*[data.main.temp, data.wind.speed, data.sys.sunrise, data.sys.sunset, data.name] */
-        })))
+    const getGeolocation = () => {
+        const geo=navigator.geolocation.getCurrentPosition(position => {
+            const latitude  = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            console.log(`latitude = ${latitude} ______ longitude = ${longitude}`);  
+        })
         
     }
 
-    const handleInputChange = (event) => {
-        setCity(event.target.value)
+    const getWeather = async () => {
+        const url = `http://localhost:5000/weather/Current?city=${city}`
+        setRes(result = await fetch(url).then(response => response.json().then(data => {
+            console.log(data)
+            return data
+        })))
+
     }
 
 
     return (
         <div className='container'>
             <div className='weatherWindow'>
-                <input type='text' placeholder='Введите город' onInput={handleInputChange} />
+                <input type='text' placeholder='Введите город' onInput={(event) => {
+                    setCity(event.target.value)
+                }} />
                 <button className='btn' onClick={getWeather}  >Узнать погоду </button>
+                <button className='btn' onClick={getGeolocation}  >Узнать местоположение </button>
+                <div>
+                    <button>Погода сейчас</button>
+                    <button>Прогноз на час </button>
+                    <button>Прогноз на два дня</button>
+                    <button>Прогноз на неделю</button>
+                </div>
+                <div>
+                    {
+                        res && <WeatherInfo data={res} />
+                    }
+                </div>
             </div>
-            <div>
-                {
-                    res && <WeatherInfo data={res} />
-                }
-            </div>
+
         </div>
     );
 }
