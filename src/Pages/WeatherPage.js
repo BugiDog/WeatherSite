@@ -1,34 +1,58 @@
-import React, { useState, useEffect } from 'react';
-import WeatherInfo from '../Components/weatherInfo'
+import React, { useState, useEffect, useMemo } from 'react';
+import WeatherCurrent from '../Components/weatherCurrent'
+import ForecastHourly from '../Components/forecastHourly'
+import ForecastDaily from '../Components/forecastDaily'
+import socket from '../socket'
 import './style.css'
-
-
-// {"coord":{"lon":30.52,"lat":50.43},"weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04d"}],"base":"stations","main":{"temp":302.38,"feels_like":301.99,"temp_min":302.04,"temp_max":303.15,"pressure":1014,"humidity":48},"visibility":10000,"wind":{"speed":4,"deg":70},"clouds":{"all":100},"dt":1595859408,"sys":{"type":1,"id":8903,"country":"UA","sunrise":1595816336,"sunset":1595872180},"timezone":10800,"id":703448,"name":"Kyiv","cod":200}
-
 
 function WeatherPage() {
     const [city, setCity] = useState('Kyiv')
     const [res, setRes] = useState(null)
-    let result = null
+    const [form, setForm] = useState('weatherCurrent')
+    const [status, setStatus] = useState(false)
+    const [disabled, setDisabled] = useState('weatherCurrent')
 
-    const getGeolocation = () => {
-        const geo=navigator.geolocation.getCurrentPosition(position => {
-            const latitude  = position.coords.latitude;
-            const longitude = position.coords.longitude;
-            console.log(`latitude = ${latitude} ______ longitude = ${longitude}`);  
+    useEffect(() => {
+        socket.on('status', (data) => {
+            console.log('status  ' + data);
+            setStatus(data)
         })
-        
+        socket.on('weatherCurrent', data => {
+            setRes(data)
+            console.log('weatherCurrent');
+            console.log(data);
+        })
+        socket.on('forecastHourly', data => {
+            setRes(data)
+            console.log('forecastHourly');
+            console.log(data);
+        })
+        socket.on('forecastDaily', data => {
+            setRes(data)
+            console.log('forecastDaily');
+            console.log(data);
+        })
+    }, [])
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(position => {
+            const lat = position.coords.latitude.toFixed(2);
+            const lon = position.coords.longitude.toFixed(2);
+            console.log(lat, lon);
+            setStatus(false)
+            socket.emit('takeWeather', { lat, lon })
+        })
+    }, [])
+
+    useMemo(() => {
+        if (status) socket.emit(form)
+    }, [status, form])
+
+    const handlerClick = (targetName) => {
+        setDisabled(targetName)
+        setRes(null)
+        setForm(targetName)
     }
-
-    const getWeather = async () => {
-        const url = `http://localhost:5000/weather/Current?city=${city}`
-        setRes(result = await fetch(url).then(response => response.json().then(data => {
-            console.log(data)
-            return data
-        })))
-
-    }
-
 
     return (
         <div className='container'>
@@ -36,18 +60,29 @@ function WeatherPage() {
                 <input type='text' placeholder='Введите город' onInput={(event) => {
                     setCity(event.target.value)
                 }} />
-                <button className='btn' onClick={getWeather}  >Узнать погоду </button>
-                <button className='btn' onClick={getGeolocation}  >Узнать местоположение </button>
+                <button className='btn' onClick={() => {
+                    setStatus(false)
+                    socket.emit('takeWeather', city)
+                }}  >Узнать погоду </button>
                 <div>
-                    <button>Погода сейчас</button>
-                    <button>Прогноз на час </button>
-                    <button>Прогноз на два дня</button>
-                    <button>Прогноз на неделю</button>
+                    <button disabled={disabled === 'weatherCurrent'} name='weatherCurrent'
+                        onClick={(event) => { handlerClick(event.target.name) }}>
+                        Погода сейчас</button>
+                    <button disabled={disabled === 'forecastHourly'} name='forecastHourly'
+                        onClick={(event) => { handlerClick(event.target.name) }}>
+                        Прогноз на два дня</button>
+                    <button disabled={disabled === 'forecastDaily'} name='forecastDaily'
+                        onClick={(event) => { handlerClick(event.target.name) }}>
+                        Прогноз на неделю</button>
                 </div>
                 <div>
-                    {
-                        res && <WeatherInfo data={res} />
-                    }
+                    {form === 'weatherCurrent' && res && <WeatherCurrent data={res} />}
+                </div>
+                <div>
+                    {form === 'forecastHourly' && res && <ForecastHourly data={res} />}
+                </div>
+                <div>
+                    {form === 'forecastDaily' && res && <ForecastDaily data={res} />}
                 </div>
             </div>
 

@@ -3,11 +3,11 @@ import WeatherPage from './Pages/WeatherPage';
 
 function App() {
 
-  
+
 
   return (
     <div >
-      <WeatherPage/>
+      <WeatherPage />
     </div>
   );
 }
