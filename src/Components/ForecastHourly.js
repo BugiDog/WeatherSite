@@ -41,6 +41,8 @@ function ForecastHourly({ data }) {
         iconsIDArr: []
     }
 
+    console.log(data)
+
     data.map((item) => {
         if ((item.weather[0].id === 800 || item.weather[0].id === 801 || item.weather[0].id === 500) &&
             (item.weather[0].icon.split('')[2] === 'n')) item.weather[0].id += 10
