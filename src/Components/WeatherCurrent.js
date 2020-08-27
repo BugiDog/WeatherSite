@@ -2,6 +2,7 @@ import React from 'react';
 import IconsMeneger from '../Icons/IconsManager'
 
 function WeatherCurrent({ data }) {
+    // TODO: вынести все вычисления  в отдельную вспомогательную функцию getSunrise() и getSunset() ПРЕНЕСТИ НА БЭК И ОТПРАВЛЯТЬ НОРМАЛЬНЫЕ ДАТУ И ВРЕМЯ
     const dateNow = new Date().toDateString()
     const sunrise = new Date(data.sys.sunrise * 1000).toTimeString().split('', 8)
     const sunset = new Date(data.sys.sunset * 1000).toTimeString().split('', 8)
@@ -14,7 +15,7 @@ function WeatherCurrent({ data }) {
     return (
         <div className='line'>
             <div className='SVGContainerCurrent'>
-                <img src={icon} />
+                <img src={icon} alt=''/>
             </div>
             <div>
                 Погода на {dateNow}<br />

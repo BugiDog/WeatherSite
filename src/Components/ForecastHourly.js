@@ -34,6 +34,7 @@ function ForecastHourlyItem({ value, icon }) {
 
 function ForecastHourly({ data }) {
 
+    // TODO:  ПРЕНЕСТИ НА БЭК И ОТПРАВЛЯТЬ НОРМАЛЬНЫЕ ДАТУ И ВРЕМЯ
     const forecastForTwoDays = {
         today: [],
         tomorrow: [],
@@ -41,6 +42,7 @@ function ForecastHourly({ data }) {
         iconsIDArr: []
     }
 
+    // TODO:  ПРЕНЕСТИ НА БЭК И ОТПРАВЛЯТЬ НОРМАЛЬНЫЕ ДАТУ И ВРЕМЯ
     data.map((item) => {
         if ((item.weather[0].id === 800 || item.weather[0].id === 801 || item.weather[0].id === 500) &&
             (item.weather[0].icon.split('')[2] === 'n')) item.weather[0].id += 10
@@ -85,6 +87,7 @@ function ForecastHourly({ data }) {
                         {forecastForTwoDays.today.map((item, index) => {
                             const icon = iconsArr[forecastForTwoDays.iconsIDArr.indexOf(item.weather[0].id)].icon
                             return <ForecastHourlyItem
+                                // TODO: key должен быть уникальным индефикатором, попробуй `${city}-${data}`
                                 key={index}
                                 value={item}
                                 icon={icon}
@@ -98,6 +101,7 @@ function ForecastHourly({ data }) {
                         {forecastForTwoDays.tomorrow.map((item, index) => {
                             const icon = iconsArr[forecastForTwoDays.iconsIDArr.indexOf(item.weather[0].id)].icon
                             return <ForecastHourlyItem
+                                // TODO: key должен быть уникальным индефикатором, попробуй `${city}-${data}`
                                 key={index}
                                 value={item}
                                 icon={icon}
@@ -105,17 +109,17 @@ function ForecastHourly({ data }) {
                         })}
                     </div >
                 </div>
-                {forecastForTwoDays.aftertomorrow && <div className='column'>
+                {!!forecastForTwoDays.aftertomorrow && <div className='column'>
                     <div>{new Date(forecastForTwoDays.aftertomorrow[0].dt).toDateString()}</div>
                     <div className='dayContainer'>
-                        {forecastForTwoDays.aftertomorrow.map((item, index) => {
-                            const icon = iconsArr[forecastForTwoDays.iconsIDArr.indexOf(item.weather[0].id)].icon
-                            return <ForecastHourlyItem
-                                key={index}
+                        {forecastForTwoDays.aftertomorrow.map((item) =>
+                            <ForecastHourlyItem
+                                // TODO: key должен быть уникальным индефикатором, попробуй `${city}-${data}`
+                                key={item.dt}
                                 value={item}
-                                icon={icon}
+                                icon={iconsArr[forecastForTwoDays.iconsIDArr.indexOf(item.weather[0].id)].icon}
                             />
-                        })}
+                        )}
                     </div>
                 </div>}
             </div>

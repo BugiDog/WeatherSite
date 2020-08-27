@@ -6,7 +6,6 @@ import socket from '../socket'
 import '../CSS/WPStyle.css'
 
 
-
 function WeatherPage() {
     const [city, setCity] = useState('Kyiv')
     const [res, setRes] = useState(null)
@@ -50,41 +49,43 @@ function WeatherPage() {
         if (status) socket.emit(form)
     }, [status, form])
 
-    const handlerClick = (targetName) => {
-        setDisabled(targetName)
+    const handlerClick = (e) => {
+        setDisabled(e.target.name)
         setRes(null)
-        setForm(targetName)
+        setForm(e.target.name)
     }
 
     return (
         <div className='container'>
             <div className='weatherWindow'>
+                {/*TODO: Сделать inputHandler чтобы не пересоздавать анонимную функцию*/}
                 <input type='text' placeholder='Введите город' onInput={(event) => {
                     setCity(event.target.value)
                 }} />
+                {/*TODO: Сделать inputHandler чтобы не пересоздавать анонимную функцию*/}
                 <button className='btn' onClick={() => {
                     setStatus(false)
                     socket.emit('takeWeather', city)
                 }}  >Узнать погоду </button>
                 <div>
-                    <button disabled={disabled === 'weatherCurrent'} name='weatherCurrent'
-                        onClick={(event) => { handlerClick(event.target.name) }}>
+                    <button type='button' disabled={disabled === 'weatherCurrent'} name='weatherCurrent'
+                        onClick={handlerClick}>
                         Погода сейчас</button>
-                    <button disabled={disabled === 'forecastHourly'} name='forecastHourly'
-                        onClick={(event) => { handlerClick(event.target.name) }}>
+                    <button type='button' disabled={disabled === 'forecastHourly'} name='forecastHourly'
+                        onClick={handlerClick}>
                         Прогноз на два дня</button>
-                    <button disabled={disabled === 'forecastDaily'} name='forecastDaily'
-                        onClick={(event) => { handlerClick(event.target.name) }}>
+                    <button type='button' disabled={disabled === 'forecastDaily'} name='forecastDaily'
+                        onClick={handlerClick}>
                         Прогноз на неделю</button>
                 </div>
                 <div>
-                    {form === 'weatherCurrent' && res && <WeatherCurrent data={res} />}
+                    {form === 'weatherCurrent' && !!res && <WeatherCurrent data={res} />}
                 </div>
                 <div>
-                    {form === 'forecastHourly' && res && <ForecastHourly data={res} />}
+                    {form === 'forecastHourly' && !!res && <ForecastHourly data={res} />}
                 </div>
                 <div>
-                    {form === 'forecastDaily' && res && <ForecastDaily data={res} />}
+                    {form === 'forecastDaily' && !!res && <ForecastDaily data={res} />}
                 </div>
             </div>
 
