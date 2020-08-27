@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import WeatherCurrent from '../Components/weatherCurrent'
-import ForecastHourly from '../Components/forecastHourly'
-import ForecastDaily from '../Components/forecastDaily'
+import WeatherCurrent from '../Components/WeatherCurrent'
+import ForecastHourly from '../Components/ForecastHourly'
+import ForecastDaily from '../Components/ForecastDaily'
 import socket from '../socket'
-import './style.css'
+import '../CSS/WPStyle.css'
+
+
 
 function WeatherPage() {
     const [city, setCity] = useState('Kyiv')

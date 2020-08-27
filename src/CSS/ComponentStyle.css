@@ -1,0 +1,39 @@
+.forecastHourly{
+    width: 70vw;
+    display: flex;
+}
+
+.forecastHourlyList{
+    display: flex;
+    overflow: scroll 
+
+}
+
+.forecastHourlyItem{
+    width: 40px;
+    display: flex;
+    margin:3px;
+    flex-direction: column;
+    
+}
+
+.marking{
+    text-align: right;
+    flex-direction: column;
+}
+
+.dayContainer{
+    display: flex;
+    border-style: solid ;
+    border-width: 1px 2px 1px 1px 
+}
+
+.SVGContainerForecastHourly{
+    width: 100%;
+    height: 40px;
+}
+
+.SVGContainerCurrent{
+    width: 150px;
+    height: 150px;
+}

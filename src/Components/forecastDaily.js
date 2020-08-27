@@ -1,6 +1,7 @@
 import React from 'react';
 
-function forecastDaily({ data }) {
+
+function ForecastDaily({ data }) {
     
         
     return (
@@ -10,4 +11,4 @@ function forecastDaily({ data }) {
     );
 }
 
-export default forecastDaily;
+export default ForecastDaily;

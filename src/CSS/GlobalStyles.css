@@ -1,0 +1,14 @@
+.btn{
+    height: 35px;
+    width: 100px;
+    background-color: green;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+.line{
+    display: flex;
+}
