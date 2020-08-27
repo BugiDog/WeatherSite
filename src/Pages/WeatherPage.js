@@ -46,7 +46,7 @@ function WeatherPage() {
         })
     }, [])
 
-    useMemo(() => {
+    useEffect(() => {
         if (status) socket.emit(form)
     }, [status, form])
 
