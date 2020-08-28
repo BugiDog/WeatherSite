@@ -3,38 +3,19 @@ import WeatherCurrent from '../Components/WeatherCurrent'
 import ForecastHourly from '../Components/ForecastHourly'
 import ForecastDaily from '../Components/ForecastDaily'
 import socket from '../socket'
+import { useSocket } from '../socket'
 import '../CSS/WPStyle.css'
 
 
 
 function WeatherPage() {
     const [city, setCity] = useState('Kyiv')
-    const [res, setRes] = useState(null)
     const [form, setForm] = useState('weatherCurrent')
-    const [status, setStatus] = useState(false)
     const [disabled, setDisabled] = useState('weatherCurrent')
+    const { weatherData, status, setStatus, setWeatherData} = useSocket()
 
-    useEffect(() => {
-        socket.on('status', (data) => {
-            console.log('status  ' + data);
-            setStatus(data)
-        })
-        socket.on('weatherCurrent', data => {
-            setRes(data)
-            console.log('weatherCurrent');
-            console.log(data);
-        })
-        socket.on('forecastHourly', data => {
-            setRes(data)
-            console.log('forecastHourly');
-            console.log(data);
-        })
-        socket.on('forecastDaily', data => {
-            setRes(data)
-            console.log('forecastDaily');
-            console.log(data);
-        })
-    }, [])
+    console.log('weatherData', weatherData)
+    console.log('status', status)
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(position => {
@@ -46,13 +27,14 @@ function WeatherPage() {
         })
     }, [])
 
-    useMemo(() => {
+    useEffect(() => {
+        console.log(status, form)
         if (status) socket.emit(form)
     }, [status, form])
 
     const handlerClick = (targetName) => {
         setDisabled(targetName)
-        setRes(null)
+        setWeatherData(null)
         setForm(targetName)
     }
 
@@ -78,13 +60,13 @@ function WeatherPage() {
                         Прогноз на неделю</button>
                 </div>
                 <div>
-                    {form === 'weatherCurrent' && res && <WeatherCurrent data={res} />}
+                    {form === 'weatherCurrent' && weatherData && <WeatherCurrent data={weatherData} />}
                 </div>
                 <div>
-                    {form === 'forecastHourly' && res && <ForecastHourly data={res} />}
+                    {form === 'forecastHourly' && weatherData && <ForecastHourly data={weatherData} />}
                 </div>
                 <div>
-                    {form === 'forecastDaily' && res && <ForecastDaily data={res} />}
+                    {form === 'forecastDaily' && weatherData && <ForecastDaily data={weatherData} />}
                 </div>
             </div>
 
