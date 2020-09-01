@@ -3,10 +3,8 @@ import io from 'socket.io-client'
 
 const socket = io(`http://localhost:5000`)
 
-export default socket
-
 export const useSocket = () => {
-    const [res, setRes] = useState(null)
+    const [weatherData, setWeatherData] = useState(null)
     const [status, setStatus] = useState(false)
 
     useEffect(() => {
@@ -15,26 +13,33 @@ export const useSocket = () => {
             setStatus(data)
         })
         socket.on('weatherCurrent', data => {
-            setRes(data)
-            console.log('weatherCurrent');
-            console.log(data);
+            setWeatherData(data)
+            console.log('weatherCurrent',data);
         })
         socket.on('forecastHourly', data => {
-            setRes(data)
-            console.log('forecastHourly');
-            console.log(data);
+            setWeatherData(data)
+            console.log('forecastHourly',data);
         })
         socket.on('forecastDaily', data => {
-            setRes(data)
-            console.log('forecastDaily');
-            console.log(data);
+            setWeatherData(data)
+            console.log('forecastDaily',data);
         })
-    }, [socket, setRes, setStatus])
+    }, [])
+
+    const requestWeather = (data) => {
+        socket.emit('takeWeather',data)
+    }
+
+    const getWeather = (data) =>{
+        socket.emit(data)
+    }
 
     return {
-        weatherData: res,
+        weatherData,
         status,
         setStatus,
-        setWeatherData: setRes,
+        setWeatherData,
+        requestWeather,
+        getWeather
     }
 }
