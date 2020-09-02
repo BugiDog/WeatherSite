@@ -3,8 +3,6 @@ import WeatherCurrent from '../Components/WeatherCurrent'
 import ForecastHourly from '../Components/ForecastHourly'
 import ForecastDaily from '../Components/ForecastDaily'
 import { useSocket } from '../socket'
-import '../CSS/WPStyle.css'
-
 
 
 function WeatherPage() {

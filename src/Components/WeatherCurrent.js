@@ -9,7 +9,7 @@ function WeatherCurrent({ data }) {
 
     if ((data.weather[0].id === 800 || data.weather[0].id === 801 || data.weather[0].id === 500) &&
     (data.weather[0].icon.split('')[2] === 'n')) data.weather[0].id += 10
-    const icon = IconsMeneger([data.weather[0].id])[0].icon
+    const icon = IconsMeneger([data.weather[0].id]).get(data.weather[0].id).icon
 
     return (
         <div className='line'>
