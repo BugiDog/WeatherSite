@@ -8,7 +8,6 @@ import { useSocket } from '../socket'
 function WeatherPage() {
     const [city, setCity] = useState('Kyiv')
     const [form, setForm] = useState('weatherCurrent')
-    const [disabled, setDisabled] = useState('weatherCurrent')
     const { weatherData, status, setStatus, setWeatherData, requestWeather, getWeather} = useSocket()
     
     useEffect(() => {
@@ -25,7 +24,6 @@ function WeatherPage() {
     }, [status, form])
 
     const handlerClick = (event) => {
-        setDisabled(event.target.name)
         setWeatherData(null)
         setForm(event.target.name)
     }
@@ -43,13 +41,13 @@ function WeatherPage() {
                 <input type='text' placeholder='Введите город' onInput={inputChange} />
                 <button className='btn' onClick={requestСity}  >Узнать погоду </button>
                 <div>
-                    <button disabled={disabled === 'weatherCurrent'} name='weatherCurrent'
+                    <button disabled={form === 'weatherCurrent'} name='weatherCurrent'
                         onClick={handlerClick}>
                         Погода сейчас</button>
-                    <button disabled={disabled === 'forecastHourly'} name='forecastHourly'
+                    <button disabled={form === 'forecastHourly'} name='forecastHourly'
                         onClick={handlerClick}>
                         Прогноз на два дня</button>
-                    <button disabled={disabled === 'forecastDaily'} name='forecastDaily'
+                    <button disabled={form === 'forecastDaily'} name='forecastDaily'
                         onClick={handlerClick}>
                         Прогноз на неделю</button>
                 </div>

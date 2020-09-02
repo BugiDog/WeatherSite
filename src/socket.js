@@ -24,6 +24,9 @@ export const useSocket = () => {
             setWeatherData(data)
             console.log('forecastDaily',data);
         })
+        socket.on('Error',error=>{
+            alert(error.message)
+        })
     }, [])
 
     const requestWeather = (data) => {
