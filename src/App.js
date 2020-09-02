@@ -1,6 +1,6 @@
 import React from 'react';
 import WeatherPage from './Pages/WeatherPage';
-import './CSS/GlobalStyles.css'
+
 
 function App() {
   return (

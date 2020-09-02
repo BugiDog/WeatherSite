@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import '../CSS/ComponentStyle.css'
 import IconsMeneger from '../Icons/IconsManager'
 
 
@@ -85,7 +84,7 @@ function ForecastHourly({ data }) {
                     <div>{new Date(forecastForTwoDays.today[0].dt).toDateString()}</div>
                     <div className='dayContainer'>
                         {forecastForTwoDays.today.map((item, index) => {
-                            const icon = iconsArr[forecastForTwoDays.iconsIDArr.indexOf(item.weather[0].id)].icon
+                            const icon = iconsArr.get(item.weather[0].id).icon
                             return <ForecastHourlyItem
                                 key={index}
                                 value={item}
@@ -98,7 +97,7 @@ function ForecastHourly({ data }) {
                     <div>{new Date(forecastForTwoDays.tomorrow[0].dt).toDateString()}</div>
                     <div className='dayContainer'>
                         {forecastForTwoDays.tomorrow.map((item, index) => {
-                            const icon = iconsArr[forecastForTwoDays.iconsIDArr.indexOf(item.weather[0].id)].icon
+                            const icon = iconsArr.get(item.weather[0].id).icon
                             return <ForecastHourlyItem
                                 key={index}
                                 value={item}
@@ -111,7 +110,7 @@ function ForecastHourly({ data }) {
                     <div>{new Date(forecastForTwoDays.aftertomorrow[0].dt).toDateString()}</div>
                     <div className='dayContainer'>
                         {forecastForTwoDays.aftertomorrow.map((item, index) => {
-                            const icon = iconsArr[forecastForTwoDays.iconsIDArr.indexOf(item.weather[0].id)].icon
+                            const icon = iconsArr.get(item.weather[0].id).icon
                             return <ForecastHourlyItem
                                 key={index}
                                 value={item}

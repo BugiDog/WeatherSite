@@ -7,26 +7,26 @@ import Drizzle from './Drizzle/Drizzle'
 
 function IconsMeneger(iconsArr) {
     console.log('IconsMeneger' + iconsArr);
-    let icons = []
+    let icons = new Map()
     iconsArr.map((item) => {
 
         if (item >= 200 && item < 300) {
-            icons.push(Thunderstorm(item))
+            icons.set(item,Thunderstorm(item))
         }
         if (item >= 300 && item < 400) {
-            icons.push(Drizzle(item))
+            icons.set(item,Drizzle(item))
         }
         if (item >= 500 && item < 600) {
-            icons.push(Rain(item))
+            icons.set(item,Rain(item))
         }
         if (item >= 600 && item < 700) {
-            icons.push(Snow(item))
+            icons.set(item,Snow(item))
         }
         if (item >= 700 && item < 800) {
-            icons.push(Other(item))
+            icons.set(item,Other(item))
         }
         if (item >= 800 && item < 900) {
-            icons.push(Clouds(item))
+            icons.set(item,Clouds(item))
             
         }
 
