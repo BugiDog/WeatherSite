@@ -1,0 +1,71 @@
+
+
+.weather-page{
+
+    width: 70vw;
+    height: 60vh;
+    
+    margin: 0px auto;
+    background-color: #0E51A7;
+    border-radius:25px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    
+    $element-width:40vh;
+    
+    &__city-​​selection{
+        width: $element-width;
+        height:4vh ;
+        display: flex;
+        
+        
+    }
+    &__form-​​selection{
+        width: $element-width;
+        display: flex;
+        
+        & button{
+            width: 33.33%;
+        }
+    }
+    &__content{
+        width: 100%;
+        height: 30vh;
+        display: flex;
+        justify-content: center;
+        
+    }
+
+}
+
+.city-​​selection{
+    
+    &__imput-city{
+        display: flex;
+        width: 70%;
+        
+    }
+    &__button-request{
+        width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+     
+    }
+}
+
+.content{
+    &__weather-current{
+        display: flex;
+        
+    }
+    &__forecast-hourly{
+        display: flex;
+    }
+    &__forecast-daily{
+        display: flex;
+    }
+}
+
