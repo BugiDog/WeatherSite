@@ -8,8 +8,8 @@ import { useSocket } from '../socket'
 function WeatherPage() {
     const [city, setCity] = useState('Kyiv')
     const [form, setForm] = useState('weatherCurrent')
-    const { weatherData, status, setStatus, setWeatherData, requestWeather, getWeather} = useSocket()
-    
+    const { weatherData, status, setStatus, setWeatherData, requestWeather, getWeather } = useSocket()
+
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(position => {
             const latitude = position.coords.latitude.toFixed(2);
@@ -36,31 +36,35 @@ function WeatherPage() {
     }
 
     return (
-        <div className='container'>
-            <div className='weatherWindow'>
-                <input type='text' placeholder='Введите город' onInput={inputChange} />
-                <button className='btn' onClick={requestСity}  >Узнать погоду </button>
-                <div>
-                    <button disabled={form === 'weatherCurrent'} name='weatherCurrent'
-                        onClick={handlerClick}>
-                        Погода сейчас</button>
-                    <button disabled={form === 'forecastHourly'} name='forecastHourly'
-                        onClick={handlerClick}>
-                        Прогноз на два дня</button>
-                    <button disabled={form === 'forecastDaily'} name='forecastDaily'
-                        onClick={handlerClick}>
-                        Прогноз на неделю</button>
-                </div>
-                <div>
+        <div className='weather-page'>
+            <div className='weather-page__city-​​selection city-​​selection'>
+                <input className='city-​​selection__imput-city' type='text' placeholder='Введите город' onInput={inputChange} />
+                <button className='city-​​selection__button-request' onClick={requestСity}  >Узнать погоду </button>
+            </div>
+            <div className='weather-page__form-​​selection'>
+                <button disabled={form === 'weatherCurrent'} name='weatherCurrent'
+                    onClick={handlerClick}>
+                    Погода сейчас</button>
+                <button className='form-​​selection__button' disabled={form === 'forecastHourly'} name='forecastHourly'
+                    onClick={handlerClick}>
+                    Прогноз на два дня</button>
+                <button className='form-​​selection__button' disabled={form === 'forecastDaily'} name='forecastDaily'
+                    onClick={handlerClick}>
+                    Прогноз на неделю</button>
+            </div>
+            <div className='weather-page__content content'>
+                <div className='content__weather-current' >
                     {form === 'weatherCurrent' && !!weatherData && <WeatherCurrent data={weatherData} />}
                 </div>
-                <div>
+                <div className='content__forecast-hourly' >
                     {form === 'forecastHourly' && !!weatherData && <ForecastHourly data={weatherData} />}
                 </div>
-                <div>
+                <div className='content__forecast-daily'>
                     {form === 'forecastDaily' && !!weatherData && <ForecastDaily data={weatherData} />}
                 </div>
             </div>
+
+
 
         </div>
     );
