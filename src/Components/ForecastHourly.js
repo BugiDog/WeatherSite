@@ -58,71 +58,74 @@ function ForecastHourly({ data }) {
 
 
     return (
-        <div className="forecast-hourly" >
-            <div className="forecast-hourly__marking">
-                <div>
-                    День недели:
+        <div className='container'> 
+            <div className="forecast-hourly" >
+                <div className="forecast-hourly__marking">
+                    <div>
+                        День недели:
                 </div>
-                <div>
-                    Время:
+                    <div>
+                        Время:
                 </div>
-                <div className='forecast-hourly__SVG-container'>
-                    Погода:
+                    <div className='forecast-hourly__SVG-container'>
+                        Погода:
                 </div>
-                <div>
-                    Температура:
+                    <div>
+                        Температура:
                 </div>
-                <div>
-                    Ощущается:
+                    <div>
+                        Ощущается:
                 </div>
-                <div>
-                    Давление:
+                    <div>
+                        Давление:
                 </div>
-            </div>
+                </div>
 
-            <div className='forecast-hourly__content'>{/*forecastHourlyList  */}
-                <div className='forecast-hourly__day-container'>
-                    <div>{new Date(forecastForTwoDays.today[0].dt*1000).toDateString()}</div>
-                    <div className='forecast-hourly__day-line'>
-                        {forecastForTwoDays.today.map((item, index) => {
-                            const icon = iconsArr.get(item.weather[0].id).icon
-                            return <ForecastHourlyItem
-                                key={index}
-                                value={item}
-                                icon={icon}
-                            />
-                        })}
+                <div className='forecast-hourly__content'>{/*forecastHourlyList  */}
+                    <div className='forecast-hourly__day-container'>
+                        <div>{new Date(forecastForTwoDays.today[0].dt * 1000).toDateString()}</div>
+                        <div className='forecast-hourly__day-line'>
+                            {forecastForTwoDays.today.map((item, index) => {
+                                const icon = iconsArr.get(item.weather[0].id).icon
+                                return <ForecastHourlyItem
+                                    key={index}
+                                    value={item}
+                                    icon={icon}
+                                />
+                            })}
+                        </div>
                     </div>
-                </div>
-                <div className='forecast-hourly__day-container'>
-                    <div>{new Date(forecastForTwoDays.tomorrow[0].dt*1000).toDateString()}</div>
-                    <div className='forecast-hourly__day-line'>
-                        {forecastForTwoDays.tomorrow.map((item, index) => {
-                            const icon = iconsArr.get(item.weather[0].id).icon
-                            return <ForecastHourlyItem
-                                key={index}
-                                value={item}
-                                icon={icon}
-                            />
-                        })}
-                    </div >
-                </div>
-                {forecastForTwoDays.aftertomorrow && 
-                <div className='forecast-hourly__day-container'>
-                    <div>{new Date(forecastForTwoDays.aftertomorrow[0].dt*1000).toDateString()}</div>
-                    <div className='forecast-hourly__day-line'>
-                        {forecastForTwoDays.aftertomorrow.map((item, index) => {
-                            const icon = iconsArr.get(item.weather[0].id).icon
-                            return <ForecastHourlyItem
-                                key={index}
-                                value={item}
-                                icon={icon}
-                            />
-                        })}
+                    <div className='forecast-hourly__day-container'>
+                        <div>{new Date(forecastForTwoDays.tomorrow[0].dt * 1000).toDateString()}</div>
+                        <div className='forecast-hourly__day-line'>
+                            {forecastForTwoDays.tomorrow.map((item, index) => {
+                                const icon = iconsArr.get(item.weather[0].id).icon
+                                return <ForecastHourlyItem
+                                    key={index}
+                                    value={item}
+                                    icon={icon}
+                                />
+                            })}
+                        </div >
                     </div>
-                </div>}
+                    {forecastForTwoDays.aftertomorrow &&
+                        <div className='forecast-hourly__day-container'>
+                            <div>{new Date(forecastForTwoDays.aftertomorrow[0].dt * 1000).toDateString()}</div>
+                            <div className='forecast-hourly__day-line'>
+                                {forecastForTwoDays.aftertomorrow.map((item, index) => {
+                                    const icon = iconsArr.get(item.weather[0].id).icon
+                                    return <ForecastHourlyItem
+                                        key={index}
+                                        value={item}
+                                        icon={icon}
+                                    />
+                                })}
+                            </div>
+                        </div>}
+                </div>
             </div>
         </div>
+
     );
 }
 
