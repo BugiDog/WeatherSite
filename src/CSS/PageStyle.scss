@@ -19,19 +19,22 @@
         width: $element-width;
         height:4vh ;
         display: flex;
+        margin: 0 0 10px 0;
         
         
     }
     &__form-​​selection{
         width: $element-width;
         display: flex;
+        margin: 0 0 20px 0;
         
         & button{
-            width: 33.33%;
+            flex: 1  
+            
         }
     }
     &__content{
-        width: 100%;
+        width: 90%;
         height: 30vh;
         display: flex;
         justify-content: center;
@@ -52,20 +55,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: green ;
      
     }
 }
 
-.content{
-    &__weather-current{
-        display: flex;
-        
-    }
-    &__forecast-hourly{
-        display: flex;
-    }
-    &__forecast-daily{
-        display: flex;
-    }
+.content-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 

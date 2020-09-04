@@ -52,17 +52,11 @@ function WeatherPage() {
                     onClick={handlerClick}>
                     Прогноз на неделю</button>
             </div>
-            <div className='weather-page__content content'>
-                <div className='content__weather-current' >
+            <div className='weather-page__content-page'>
                     {form === 'weatherCurrent' && !!weatherData && <WeatherCurrent data={weatherData} />}
-                </div>
-                <div className='content__forecast-hourly' >
                     {form === 'forecastHourly' && !!weatherData && <ForecastHourly data={weatherData} />}
-                </div>
-                <div className='content__forecast-daily'>
                     {form === 'forecastDaily' && !!weatherData && <ForecastDaily data={weatherData} />}
-                </div>
-            </div>
+             </div>
 
 
 

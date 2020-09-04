@@ -8,26 +8,34 @@ function WeatherCurrent({ data }) {
     const temp = (data.main.temp - 273).toFixed(1)
 
     if ((data.weather[0].id === 800 || data.weather[0].id === 801 || data.weather[0].id === 500) &&
-    (data.weather[0].icon.split('')[2] === 'n')) data.weather[0].id += 10
+        (data.weather[0].icon.split('')[2] === 'n')) data.weather[0].id += 10
     const icon = IconsMeneger([data.weather[0].id]).get(data.weather[0].id).icon
 
     return (
-        <div className='line'>
-            <div className='SVGContainerCurrent'>
+        <div className='current'>
+            <div className='current__SVG-container'>
                 <img src={icon} />
             </div>
-            <div>
-                Погода на {dateNow}<br />
-                Город: {data.name}
-                <div>
+            <div className='current__content'>
+                <div className='current__date'>
+                    Погода на: {dateNow}
+                </div>
+                <div className='current__city' >
+                    Город: {data.name}
+                </div>
+                <div className='current__temperature'>
                     {`Температура: ${temp}С/${data.main.temp}F`}
                 </div>
-                <div>
+                <div className='current__wind-speed'>
                     Скорость ветра: {data.wind.speed} М/с
                 </div>
-                <div >
-                    Восход: <label> {sunrise}  </label><br />
-                Закат: <label> {sunset}  </label>
+                <div className='current__solar-cycle'>
+                    <div>
+                        Восход:{sunrise}  
+                    </div>
+                    <div>
+                        Закат:{sunset}  
+                    </div>
                 </div>
             </div>
 
