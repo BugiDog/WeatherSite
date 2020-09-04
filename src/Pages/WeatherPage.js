@@ -36,31 +36,34 @@ function WeatherPage() {
     }
 
     return (
-        <div className='weather-page'>
-            <div className='weather-page__city-​​selection city-​​selection'>
-                <input className='city-​​selection__imput-city' type='text' placeholder='Введите город' onInput={inputChange} />
-                <button className='city-​​selection__button-request' onClick={requestСity}  >Узнать погоду </button>
-            </div>
-            <div className='weather-page__form-​​selection'>
-                <button disabled={form === 'weatherCurrent'} name='weatherCurrent'
-                    onClick={handlerClick}>
-                    Погода сейчас</button>
-                <button className='form-​​selection__button' disabled={form === 'forecastHourly'} name='forecastHourly'
-                    onClick={handlerClick}>
-                    Прогноз на два дня</button>
-                <button className='form-​​selection__button' disabled={form === 'forecastDaily'} name='forecastDaily'
-                    onClick={handlerClick}>
-                    Прогноз на неделю</button>
-            </div>
-            <div className='weather-page__content-page'>
+        <div className='container'>
+            <div className='weather-page'>
+                <div className='weather-page__city-​​selection city-​​selection'>
+                    <input className='city-​​selection__imput-city' type='text' placeholder='Введите город' onInput={inputChange} />
+                    <button className='city-​​selection__button-request' onClick={requestСity}  >Узнать погоду </button>
+                </div>
+                <div className='weather-page__form-​​selection'>
+                    <button disabled={form === 'weatherCurrent'} name='weatherCurrent'
+                        onClick={handlerClick}>
+                        Погода сейчас</button>
+                    <button className='form-​​selection__button' disabled={form === 'forecastHourly'} name='forecastHourly'
+                        onClick={handlerClick}>
+                        Прогноз на два дня</button>
+                    <button className='form-​​selection__button' disabled={form === 'forecastDaily'} name='forecastDaily'
+                        onClick={handlerClick}>
+                        Прогноз на неделю</button>
+                </div>
+                <div className='weather-page__content-page'>
                     {form === 'weatherCurrent' && !!weatherData && <WeatherCurrent data={weatherData} />}
                     {form === 'forecastHourly' && !!weatherData && <ForecastHourly data={weatherData} />}
                     {form === 'forecastDaily' && !!weatherData && <ForecastDaily data={weatherData} />}
-             </div>
+                </div>
 
 
 
+            </div>
         </div>
+
     );
 }
 

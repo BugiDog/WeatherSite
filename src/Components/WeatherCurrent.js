@@ -12,34 +12,37 @@ function WeatherCurrent({ data }) {
     const icon = IconsMeneger([data.weather[0].id]).get(data.weather[0].id).icon
 
     return (
-        <div className='current'>
-            <div className='current__SVG-container'>
-                <img src={icon} />
-            </div>
-            <div className='current__content'>
-                <div className='current__date'>
-                    Погода на: {dateNow}
+        <div className='container'>
+            <div className='current'>
+                <div className='current__SVG-container'>
+                    <img src={icon} />
                 </div>
-                <div className='current__city' >
-                    Город: {data.name}
-                </div>
-                <div className='current__temperature'>
-                    {`Температура: ${temp}С/${data.main.temp}F`}
-                </div>
-                <div className='current__wind-speed'>
-                    Скорость ветра: {data.wind.speed} М/с
-                </div>
-                <div className='current__solar-cycle'>
-                    <div>
-                        Восход:{sunrise}  
+                <div className='current__content'>
+                    <div className='current__date'>
+                        Погода на: {dateNow}
                     </div>
-                    <div>
-                        Закат:{sunset}  
+                    <div className='current__city' >
+                        Город: {data.name}
+                    </div>
+                    <div className='current__temperature'>
+                        {`Температура: ${temp}С/${data.main.temp}F`}
+                    </div>
+                    <div className='current__wind-speed'>
+                        Скорость ветра: {data.wind.speed} М/с
+                </div>
+                    <div className='current__solar-cycle'>
+                        <div>
+                            Восход:{sunrise}
+                        </div>
+                        <div>
+                            Закат:{sunset}
+                        </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
+
     );
 }
 
