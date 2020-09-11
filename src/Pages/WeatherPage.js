@@ -6,7 +6,7 @@ import { useSocket } from '../socket'
 
 
 function WeatherPage() {
-    const [city, setCity] = useState('Kyiv')
+    const [city, setCity] = useState('')
     const [form, setForm] = useState('weatherCurrent')
     const { weatherData, status, setStatus, setWeatherData, requestWeather, getWeather } = useSocket()
 
@@ -24,6 +24,7 @@ function WeatherPage() {
     }, [status, form])
 
     const handlerClick = (event) => {
+        
         setWeatherData(null)
         setForm(event.target.name)
     }
@@ -36,11 +37,11 @@ function WeatherPage() {
     }
 
     return (
-        <div className='container'>
+        
             <div className='weather-page'>
-                <div className='weather-page__city-​​selection city-​​selection'>
-                    <input className='city-​​selection__imput-city' type='text' placeholder='Введите город' onInput={inputChange} />
-                    <button className='city-​​selection__button-request' onClick={requestСity}  >Узнать погоду </button>
+                <div className='weather-page__city-​​selection'>
+                    <input className='weather-page__imput-city' type='text' placeholder='Введите город' onInput={inputChange} />
+                    <button className='weather-page__button-request' onClick={requestСity}  >Узнать погоду </button>
                 </div>
                 <div className='weather-page__form-​​selection'>
                     <button disabled={form === 'weatherCurrent'} name='weatherCurrent'
@@ -53,16 +54,15 @@ function WeatherPage() {
                         onClick={handlerClick}>
                         Прогноз на неделю</button>
                 </div>
-                <div className='weather-page__content-page'>
-                    {form === 'weatherCurrent' && !!weatherData && <WeatherCurrent data={weatherData} />}
-                    {form === 'forecastHourly' && !!weatherData && <ForecastHourly data={weatherData} />}
-                    {form === 'forecastDaily' && !!weatherData && <ForecastDaily data={weatherData} />}
+                <div className='weather-page__content'>
+                    {form === 'weatherCurrent' && !!weatherData && <WeatherCurrent weatherData={weatherData} />}
+                    {form === 'forecastHourly' && !!weatherData && <ForecastHourly weatherData={weatherData} />}
+                    {form === 'forecastDaily' && !!weatherData && <ForecastDaily weatherData={weatherData} />}
                 </div>
 
 
 
             </div>
-        </div>
 
     );
 }

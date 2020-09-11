@@ -5,7 +5,7 @@
     height: 150px;
   }
   &__content {
-    margin-left: 10px ;
+    margin-left: 10px;
     flex-direction: column;
     align-items: top;
     & div {
@@ -19,7 +19,7 @@
 
 .forecast-hourly {
   width: 100%;
-  height: 100%;  
+  height: 100%;
   display: flex;
   max-width: 1000px;
   max-height: 600px;
@@ -27,24 +27,24 @@
     text-align: right;
     flex-direction: column;
     & div {
-      padding: 0 0 10px 0;
+      padding: 0 0 12px 0;
       &:first-child {
         padding: 0 0 2px 0;
       }
     }
   }
   &__SVG-container {
-    width: 100%;
+    display: inline-block;
     height: 40px;
   }
   &__content {
-      width: 100vh;
+    width: 100vh;
     display: flex;
-    overflow: scroll;
+    overflow: auto;
   }
   &__day-container {
+    height: 100%;
     flex-direction: column;
-    
   }
   &__day-line {
     display: flex;
@@ -55,7 +55,7 @@
 }
 
 .forecastHourlyItem {
-    flex: 1; 
+  flex: 1;
   display: flex;
   margin: 3px;
   flex-direction: column;
@@ -63,14 +63,3 @@
     padding: 0 0 10px 0;
   }
 }
-
-/* .marking{
-    text-align: right;
-    flex-direction: column;
-    & div{
-        padding:0 0 10px 0;
-        &:first-child{
-            padding:0 0 2px 0;
-        }
-    }
-} */

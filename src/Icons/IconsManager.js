@@ -6,7 +6,7 @@ import Other from './Other/Other'
 import Drizzle from './Drizzle/Drizzle'
 
 function IconsMeneger(iconsArr) {
-    console.log('IconsMeneger' + iconsArr);
+    console.log('IconsManager',iconsArr);
     let icons = new Map()
     iconsArr.map((item) => {
 

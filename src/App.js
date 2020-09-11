@@ -4,7 +4,7 @@ import './CSS/MainStyle.scss'
 
 function App() {
   return (
-    <div >
+    <div className='container'>
       <WeatherPage />
     </div>
   );

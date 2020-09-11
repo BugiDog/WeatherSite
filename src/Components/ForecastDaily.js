@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function ForecastDaily({ data }) {
+function ForecastDaily({ weatherData }) {
     
         
     return (
