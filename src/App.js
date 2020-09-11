@@ -1,10 +1,10 @@
 import React from 'react';
 import WeatherPage from './Pages/WeatherPage';
-import './CSS/MainStyles.scss'
+import './CSS/MainStyle.scss'
 
 function App() {
   return (
-    <div >
+    <div className='container'>
       <WeatherPage />
     </div>
   );

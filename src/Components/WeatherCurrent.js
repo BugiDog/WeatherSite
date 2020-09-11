@@ -1,37 +1,51 @@
 import React from 'react';
 import IconsMeneger from '../Icons/IconsManager'
 
-function WeatherCurrent({ data }) {
-    const dateNow = new Date().toDateString()
-    const sunrise = new Date(data.sys.sunrise * 1000).toTimeString().split('', 8)
-    const sunset = new Date(data.sys.sunset * 1000).toTimeString().split('', 8)
-    const temp = (data.main.temp - 273).toFixed(1)
+function WeatherCurrent({ weatherData }) {
 
-    if ((data.weather[0].id === 800 || data.weather[0].id === 801 || data.weather[0].id === 500) &&
-    (data.weather[0].icon.split('')[2] === 'n')) data.weather[0].id += 10
-    const icon = IconsMeneger([data.weather[0].id]).get(data.weather[0].id).icon
+    const icon = IconsMeneger([weatherData.weatherId]).get(weatherData.weatherId).icon
 
     return (
-        <div className='line'>
-            <div className='SVGContainerCurrent'>
-                <img src={icon} />
+
+        <div className='current'>
+            <div className='current__SVG-container'>
+                <img src={icon} alt='' />
             </div>
-            <div>
-                Погода на {dateNow}<br />
-                Город: {data.name}
-                <div>
-                    {`Температура: ${temp}С/${data.main.temp}F`}
+            <div className='current__content'>
+                <div className='current__date'>
+                    {`Погода на: ${weatherData.date}`}
                 </div>
-                <div>
-                    Скорость ветра: {data.wind.speed} М/с
+                <div className='current__city' >
+                    {`Город: ${weatherData.sity}`}
                 </div>
-                <div >
-                    Восход: <label> {sunrise}  </label><br />
-                Закат: <label> {sunset}  </label>
+                <div className='current__temperature'>
+                    {`Температура: ${weatherData.temperature} С`}
+                </div>
+                <div className='current__temperature'>
+                    {`По ощущениям: ${weatherData.temperatureFeelsLike} С`}
+                </div>
+                <div className='current__wind-speed'>
+                    {`Скорость ветра: ${weatherData.windSpeed} М/с`}
+                </div>
+                <div className='current__wind-speed'>
+                    {`Влажность воздуха: ${weatherData.humidity} %`}
+                </div>
+                <div className='current__wind-speed'>
+                    {`Атмосферное давление: ${weatherData.pressure} мм ртутного столба`}
+                </div>
+                <div className='current__solar-cycle'>
+                    <div>
+                        {`Восход:${weatherData.sunrise}`}
+                    </div>
+                    <div>
+                        {`Закат:${weatherData.sunset}`}
+                    </div>
                 </div>
             </div>
 
         </div>
+
+
     );
 }
 
