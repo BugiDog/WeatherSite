@@ -1,0 +1,216 @@
+.current-forecast{
+    border-bottom: 1px solid;
+    color: white;
+    &__position-information{
+        font-size: 16px;
+        margin-bottom: 30px ;
+    }
+    &__address{ 
+        margin-bottom: 8px;
+
+    }
+    &__date-now{
+
+    }
+    &__main-information{
+        
+
+    }
+    &__more-information{
+
+    }
+}
+
+.main-information{
+    display: flex;
+    font-size: 16px;
+    margin-bottom: 20px;
+    &__thermometer-container{
+        width: 40px;
+        height: 40px;
+        align-self: flex-end;
+
+    }
+    &__thermometer-SVG{
+        width: 100%;
+        height: 100%;
+    }
+    &__temperature{
+        font-size: 50px;
+        
+    }
+    &__celsius-container{
+        position: relative;
+        width: 25px;
+        height: 50px;
+        right: 5px;
+    } 
+    &__celsius-PNG{
+        width: 100%;
+        height: 100%;
+        filter: invert(1);
+    }
+    &__icon-container{
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+
+        & img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__feels-like{
+         flex-direction: column;
+         padding: 5px;
+
+    }
+    &__description-weather{
+        margin-bottom: 5px;
+        
+    }
+    &__temperature-feels-like{
+        
+    }
+
+}
+
+.more-information{
+    display: flex;
+    font-size: 16px;
+    margin-bottom: 25px;
+    &__icon-container{
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+        & img {
+            filter: invert(1);
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__wind-speed{
+        display: flex;
+        flex-grow: 1;
+    }
+    &__humidity{
+        display: flex;
+        flex-grow: 1;
+    }
+    &__pressure{
+        display: flex;
+        flex-grow: 1;
+    }
+    &__wind-speed-data{
+        align-self: center;
+    }
+    &__humidity-data{
+        align-self: center;
+    }
+    &__pressure-data{
+        align-self: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .current {
+//   display: flex;
+//   &__SVG-container {
+//     width: 150px;
+//     height: 150px;
+//   }
+//   &__content {
+//     margin-left: 10px;
+//     flex-direction: column;
+//     align-items: top;
+//     & div {
+//       padding: 0 0 10px 0;
+//     }
+//   }
+//   &__solar-cycle {
+//     flex-direction: column;
+//   }
+// }
+
+// .forecast-hourly {
+//   width: 100%;
+//   height: 100%;
+//   display: flex;
+//   max-width: 1000px;
+//   max-height: 600px;
+//   &__marking {
+//     text-align: right;
+//     flex-direction: column;
+//     & div {
+//       padding: 0 0 12px 0;
+//       &:first-child {
+//         padding: 0 0 2px 0;
+//       }
+//     }
+//   }
+//   &__SVG-container {
+//     display: inline-block;
+//     height: 40px;
+//   }
+//   &__content {
+//     width: 100vh;
+//     display: flex;
+//     overflow: auto;
+//   }
+//   &__day-container {
+//     height: 100%;
+//     flex-direction: column;
+//   }
+//   &__day-line {
+//     display: flex;
+//     /* flex-wrap: wrap; */
+//     border-style: solid;
+//     border-width: 1px 2px 1px 1px;
+//   }
+// }
+
+// .forecastHourlyItem {
+//   flex: 1;
+//   display: flex;
+//   margin: 3px;
+//   flex-direction: column;
+//   & div {
+//     padding: 0 0 10px 0;
+//   }
+// }

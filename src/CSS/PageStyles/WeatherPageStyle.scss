@@ -1,0 +1,115 @@
+.weather-page{
+    max-width: 1400px;
+    min-width: 1000px;
+    height: 100%;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.current-and-minute-forecast{
+    max-width: 540px;
+    min-width: 430px;
+    height: 320px;
+    background-image:url(//yandex.ru/weather/_cry/G1S4h7086/3302f5sQPhgq/qX0BTHb4g12Rfo1dYdELmL_9j1W9tXQSLo8TiKwZGmItUX6qvFdyJrZWrtRcMFsOLbFmLQKS9WFH6_KrBG6ISGvPAh7FPpCfUkjuicUwm4j_Oe4lypbhMK7tY7vsbxqWzbOtiRx24-Ulw3-F7SFo-R1R5e9gA5dndesQzKfdCKiKTTN_5Y0BrWLpbUpmMNk43D4MJLsmhgNdbICa3P07N46QfMmNV2CGVIKuF_-gqDts4sfNIWPVp7Wb4p1WvStKGUywbsXcAw8BaNyLF0F5ig__3HWJF6WDXU9xqP1Py1Sfg26pjdbRtyTxXIWPkznKLIN1rQIxRhYESYAOdc9oG1htAG3FTeCNgWgOuSVgGxoPn532adUGIo_uI0sOHPqG78HdyKwHwpb3Ew9lHZI56E0hxGyRU0UmppkATwWe2ToKvaCdZF5zjYKK3-qmEdsI_p4vxYn0JdJuDTGL3v7q9B_jzajf9vD1dnNu9d9S2lkfc-fOo5DE9QVpk2-FrurriQ9S_4fMUa2gqC9pxKHrmY4_niTZ5ycDvhxC-38ceMfvwX6Z7GYw9xeBHUdP4VrorFCUD7HRZAc369DvN_7JGJgvsv7HbJKNUlpsyCYCWSoun65Fy_YUIC__ENnMr7u3f4CMCPx1AzZko5zXnaFI-h1CF47hw6RnBcsxb0QNmNsa7rIet79z3dOr3Ti0UDho_K1NlTh3JANNHqJKDPzLRszindjPtzF05fA91z-yylgcIXVs8dDFVidJAL1mjaoZSn_SzcT-g30zWB5IphHpSFyPTYSq9FawnC7S6c9NKPfM8e7rzDbAhrfwnXXdsvvKnUFEP0KAh2aG2qDstp2bCLhegB_1z0ENUqluywXSOzrOzYx3q7fXwazMQfourOvWTcDfy52k8xRmUS1nT3JLOp1CZl8iAkc2d0gBfzZ8qqv6DVOsVl9g7tIJTUhkIxiKvCwvh9mXNlNcHsFabQ0bRawBnwucBoPXZ-Hf1V7QWDkcQ2ZN8OMkhZdKwi_E7apKGnwi3pQ80Pxiaw7IpBF6-b3_n5QLNnZCXe9hyLy-m8Qt0d7ZXFYi10YjrqUf0VvpTZGWTCHhBjSl-cKv1h946Qm8sNxEfpF-ssj-iOZzS_pvr0xWC8ZXcq5NY-gv3krHX8MumF-3M6UkYd6Fn1MIq9ySty-TYwUml4pR7IYd21mqfGFsl95T_NB7TFjnY0hIfh6Phvv3pePM3OE4vw8oh82xHtqfp1MnRCFfdj2QmVo9MiVdwJGHtnYZoT6m35p6i78hfjQMg42yCvz4JCFLuaxOXoQbxeSxnTyjOs6-aWfug7yr3cch9tWSHKWO0svYH4IkD6NSpkZWiePuta1YG3gsMY5XXuIdcWk9WrZgiUmeD4xEyVf1EbycsvrvDPq0HsKf-Q21MBTUo38FH4FLyRxQV60wE5SUFmvBfkRNCPvYH4L8177DPVDpHRiEEzpoDj4fttrGtkL-vsCJPq_Y551y_wmONgLmlKEdd2wwu3lPU2cvkdOkdUaIYL9FTBr4-L9TDbXdI31Ca_wqx2FZCa2fPYU4VFQQTT7jCm9_ygZfYT4Y3aTz9rcRLhZdM1i5HnJ3jfOh1lVnmvAvpZ8bOTrsYOwkTWDvEwiNGcYzGWre7o_1-cUEI17Ncvjc3cgUL8Me-M-nwhanw0zH7YL4uVzxlg7SAmVFJUhivZYM-6nLbHFcFf4j_zMLT-okIxt7zz9vdehGh2N-XuMY726Jhj3jHArPZWAW94KdN_8wS0vPU4YsICEnhqebwO-U7om6Gx1w7BeeE52wGJwLBQCoa758nSQIV-fyjo9yum7-Soe8sT_ZPcbj9FQgLiZf0gjrfOHFbMAy56VmuxIc5h2puOtd8swl_pC84BjdSQXTSwjcLB40O3QGY_69ITq-rxkF31J-y0-H0baVkB_Fv_I6mp6yF96iIaTElirQDvacG2gYLSNe1_1BPIObfKrHsqhbjP--RtmGJVOsvcKY3Ly5tm6z7QidZpAXBAGdZZ5QmVoOktW_0-LW1JRqAfzHXTi4O7-Sj4dtw12QKz1KZ5D4-Z4_3ob6ZpVAb1yTej7dmTf9cLxrPCVxxKYyDof9YqsrjnKHvXNShndX2xBsZm16yYu9smxlreLvUbt9aOej-fu_ja02-0ZVs_w84ppdP5u0b_KuSV_FwgTXkn303bK5SoyT5U4Q8IYUlisQLoRv-tg5vWEdpH0jbwKI3rhmghtL__4-VrvXVgHMTGHJzCz5xO6yzgqs5QAFtcN8Fx8h-0g9ILWOkKCXRKbLwy0Vj9s6-y5CXoYNEw0xOB6rxjE46778LFY7N9UQvXwi-cyceBdeoZ4bbiSDNsfBv-cPUXqrHDPWnUICRBRWGgKsxE1rKSk9si-m7cA9EMo_OMaya_hMHc1mSZXFU7y8sRpsnTn07oN-2Jw0gbTXg27HL-HYC86hZBzDQwVFBBpSrTZNuGg6zaNO9jxw7mApf1omg0sIjm9OZRpVhwHMjqDID00aF96QfbjfFiEEdNO8Fy8TCNqMYASewFLENRRZgp9XrMm7GKwQXtbuIU-gu11pVcD568z8X-YZF0aSf_1Dyl7s6QVNII7Y7kcjJ2XTjUQuQJnoToLEbPADVKZ2CgENBv8aG9qtIrx3zIFO0FptGxXD6ag9LR_0ayW38s7_U6luDpn2X_NsCQ3EkxV1k580TEH7CT2TtF_CMMY1l4pgHbSP6NsYvnNOBL1Tn_Bo7wt0AyjYbj8vx_vGVABe_BKrHS5opb3Ajbr_J1KWNfGct90wG2s88bScEGDkVwSasv-VjJlLSq9TTrQeAD0QaC7Y52N7aDz9_1Qo90UibcxCiJ48eUavAt5Zr9djFpYArXTtM) ;
+    background-size: 100% 100%;
+    border-radius: 12px;
+    padding: 20px;
+}
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .weather-page{
+//     width: 70vw;
+//     height: 60vh;  
+    
+//     background-color: #0E51A7;
+//     border-radius:25px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center; 
+//     flex-direction: column;
+//     $element-width:40vh;
+//     &__city-​​selection{
+//         width: $element-width;
+//         height:4vh ;
+//         display: flex;
+//         margin: 0 0 10px 0;
+        
+//     }
+//     &__imput-city{
+//         display: flex;
+//         width: 70%;
+//     }
+//     &__button-request{
+//         width: 30%;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         background-color: green ;
+//     }
+//     &__form-​​selection{
+//         width: $element-width;
+//         display: flex;
+//         margin: 0 0 20px 0;
+//         & button{
+//             flex: 1
+            
+//         }
+//     }
+//     &__content{
+//         width: 90%;
+//         height: 30vh;
+//         display: flex;
+//         justify-content: center;
+//     }
+
+
+// }
+
+
+

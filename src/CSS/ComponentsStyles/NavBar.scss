@@ -1,0 +1,65 @@
+.nav-bar {
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  margin-bottom: 25px ;
+
+  &__container {
+    max-width: 1400px;
+    display: flex;
+    align-items: center;
+    padding: 0px 25px;
+  }
+  &__icon-container {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+  }
+  &__avatar-icon {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+  }
+  &__search {
+    display: flex;
+    max-width: 500px;
+    flex-grow: 1;
+    height: 35px;
+    margin-right: auto;
+    padding: 0 12px;
+    background-color: #eceef2;
+    border-radius: 7px;
+  }
+  &__search-input {
+    width: 100%;
+    height: 100%;
+    background-color: #eceef2;
+  }
+  input::-webkit-input-placeholder {
+    font-size: 20px;
+  }
+  input::-moz-placeholder {
+    font-size: 20px;
+  }
+  &__search-img {
+    width: 35px;
+    height: 35px;
+    background-color: #eceef2;
+  }
+  &__link-container {
+    margin-right: 60px;
+    & a {
+      margin-right: 20px;
+      font-size: 16px;
+    }
+    & a:hover {
+      color: red;
+    }
+  }
+  &__hourly-forecast-2-days {
+  }
+  &__daily-forecast-7-days {
+  }
+  &__map {
+  }
+}

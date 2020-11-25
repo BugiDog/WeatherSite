@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import io from 'socket.io-client'
 
-const socket = io(`http://localhost:5000`)
+const socket = io(`http://localhost:3002`)
 
 export const useSocket = () => {
     const [weatherData, setWeatherData] = useState(null)
@@ -15,6 +15,9 @@ export const useSocket = () => {
         socket.on('weatherCurrent', data => {
             setWeatherData(data)
             console.log('weatherCurrent',data);
+        })
+        socket.on('weatherCurrent2', data => {
+            console.log('weatherCurrent2',data);
         })
         socket.on('forecastHourly', data => {
             setWeatherData(data)
